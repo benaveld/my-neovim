@@ -114,25 +114,10 @@ _G.packer_plugins = {
     path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/nerdcommenter",
     url = "https://github.com/preservim/nerdcommenter"
   },
-  ["nim.vim"] = {
-    loaded = true,
-    path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/nim.vim",
-    url = "https://github.com/arkt8/nim.vim"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
-  },
-  ["nvim-dap-virtual-text"] = {
-    loaded = true,
-    path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
-    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
-  },
-  ["nvim-gps"] = {
-    loaded = true,
-    path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/nvim-gps",
-    url = "https://github.com/SmiteshP/nvim-gps"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -140,7 +125,7 @@ _G.packer_plugins = {
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
-    config = { "\27LJ\2\n¬\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\21ensure_installed\1\0\0\1\f\0\0\tbash\ncmake\bcpp\bcss\15dockerfile\thtml\15javascript\tjson\nlatex\blua\nregex\nsetup\28nvim-treesitter.configs\frequire\0" },
+    config = { "\27LJ\2\nõ\t\0\0\6\0000\00056\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\0025\3\v\0005\4\n\0=\4\f\0035\4\r\0=\4\14\0035\4\15\0005\5\16\0=\5\17\4=\4\18\0035\4\19\0005\5\20\0=\5\17\4=\4\21\3=\3\22\0025\3\25\0005\4\23\0005\5\24\0=\5\17\4=\4\26\0035\4\27\0005\5\28\0=\5\29\0045\5\30\0=\5\31\4=\4 \0035\4!\0005\5\"\0=\5#\0045\5$\0=\5%\0045\5&\0=\5'\0045\5(\0=\5)\4=\4*\0035\4+\0005\5,\0=\5-\4=\4.\3=\3/\2B\0\2\1K\0\1\0\16textobjects\16lsp_interop\25peek_definition_code\1\0\2\15<leader>dF\17@class.outer\15<leader>df\20@function.outer\1\0\2\venable\2\vborder\tnone\tmove\22goto_previous_end\1\0\2\a[]\17@class.outer\a[M\20@function.outer\24goto_previous_start\1\0\2\a[[\17@class.outer\a[m\20@function.outer\18goto_next_end\1\0\2\a][\17@class.outer\a]M\20@function.outer\20goto_next_start\1\0\2\a]m\20@function.outer\a]]\17@class.outer\1\0\2\14set_jumps\2\venable\2\tswap\18swap_previous\1\0\1\14<leader>A\21@parameter.inner\14swap_next\1\0\1\14<leader>a\21@parameter.inner\1\0\1\venable\2\vselect\1\0\0\1\0\4\aaf\20@function.outer\aic\17@class.inner\aac\17@class.outer\aif\20@function.inner\1\0\2\14lookahead\2\venable\2\rrefactor\15navigation\1\0\5\25list_definitions_toc\agO\24goto_previous_usage\n<a-#>\21list_definitions\bgnD\20goto_definition\bgnd\20goto_next_usage\n<a-*>\1\0\1\venable\2\17smart_rename\fkeymaps\1\0\1\17smart_rename\bgrr\1\0\1\venable\2\28highlight_current_scope\1\0\1\venable\2\26highlight_definitions\1\0\0\1\0\2\25clear_on_cursor_move\2\venable\2\frainbow\1\0\2\18extended_mode\2\venable\2\14highlight\1\0\1\venable\2\21ensure_installed\1\0\0\1\f\0\0\tbash\ncmake\bcpp\bcss\15dockerfile\thtml\15javascript\tjson\nlatex\blua\nregex\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -150,11 +135,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
-  },
-  ["nvim-treesitter-pairs"] = {
-    loaded = true,
-    path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/nvim-treesitter-pairs",
-    url = "https://github.com/theHamsta/nvim-treesitter-pairs"
   },
   ["nvim-treesitter-refactor"] = {
     loaded = true,
@@ -167,22 +147,12 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
   ["nvim-ts-autotag"] = {
+    config = { "\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20nvim-ts-autotag\frequire\0" },
     loaded = true,
     path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
   },
-  ["nvim-ts-context-commentstring"] = {
-    loaded = true,
-    path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
-    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
-  },
-  ["nvim-ts-hint-textobject"] = {
-    loaded = true,
-    path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/nvim-ts-hint-textobject",
-    url = "https://github.com/mfussenegger/nvim-ts-hint-textobject"
-  },
   ["nvim-ts-rainbow"] = {
-    config = { "\27LJ\2\nI\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
     url = "https://github.com/p00f/nvim-ts-rainbow"
@@ -192,35 +162,15 @@ _G.packer_plugins = {
     path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  playground = {
-    loaded = true,
-    path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/playground",
-    url = "https://github.com/nvim-treesitter/playground"
-  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["spellsitter.nvim"] = {
-    loaded = true,
-    path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/spellsitter.nvim",
-    url = "https://github.com/lewis6991/spellsitter.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["tree-sitter-org"] = {
-    loaded = true,
-    path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/tree-sitter-org",
-    url = "https://github.com/milisims/tree-sitter-org"
-  },
-  ["twilight.nvim"] = {
-    loaded = true,
-    path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/twilight.nvim",
-    url = "https://github.com/folke/twilight.nvim"
   },
   ["vim-css-color"] = {
     loaded = true,
@@ -236,32 +186,22 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
-  },
-  ["vim-matchup"] = {
-    loaded = true,
-    path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/vim-matchup",
-    url = "https://github.com/andymass/vim-matchup"
-  },
-  ["vim-terra"] = {
-    loaded = true,
-    path = "/home/benjamin/.local/share/nvim/site/pack/packer/start/vim-terra",
-    url = "https://github.com/jakwings/vim-terra"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\n¬\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\21ensure_installed\1\0\0\1\f\0\0\tbash\ncmake\bcpp\bcss\15dockerfile\thtml\15javascript\tjson\nlatex\blua\nregex\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
--- Config for: nvim-ts-rainbow
-time([[Config for nvim-ts-rainbow]], true)
-try_loadstring("\27LJ\2\nI\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-ts-rainbow")
-time([[Config for nvim-ts-rainbow]], false)
 -- Config for: nvim-treesitter-context
 time([[Config for nvim-treesitter-context]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\23treesitter-context\frequire\0", "config", "nvim-treesitter-context")
 time([[Config for nvim-treesitter-context]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\nõ\t\0\0\6\0000\00056\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\0025\3\v\0005\4\n\0=\4\f\0035\4\r\0=\4\14\0035\4\15\0005\5\16\0=\5\17\4=\4\18\0035\4\19\0005\5\20\0=\5\17\4=\4\21\3=\3\22\0025\3\25\0005\4\23\0005\5\24\0=\5\17\4=\4\26\0035\4\27\0005\5\28\0=\5\29\0045\5\30\0=\5\31\4=\4 \0035\4!\0005\5\"\0=\5#\0045\5$\0=\5%\0045\5&\0=\5'\0045\5(\0=\5)\4=\4*\0035\4+\0005\5,\0=\5-\4=\4.\3=\3/\2B\0\2\1K\0\1\0\16textobjects\16lsp_interop\25peek_definition_code\1\0\2\15<leader>dF\17@class.outer\15<leader>df\20@function.outer\1\0\2\venable\2\vborder\tnone\tmove\22goto_previous_end\1\0\2\a[]\17@class.outer\a[M\20@function.outer\24goto_previous_start\1\0\2\a[[\17@class.outer\a[m\20@function.outer\18goto_next_end\1\0\2\a][\17@class.outer\a]M\20@function.outer\20goto_next_start\1\0\2\a]m\20@function.outer\a]]\17@class.outer\1\0\2\14set_jumps\2\venable\2\tswap\18swap_previous\1\0\1\14<leader>A\21@parameter.inner\14swap_next\1\0\1\14<leader>a\21@parameter.inner\1\0\1\venable\2\vselect\1\0\0\1\0\4\aaf\20@function.outer\aic\17@class.inner\aac\17@class.outer\aif\20@function.inner\1\0\2\14lookahead\2\venable\2\rrefactor\15navigation\1\0\5\25list_definitions_toc\agO\24goto_previous_usage\n<a-#>\21list_definitions\bgnD\20goto_definition\bgnd\20goto_next_usage\n<a-*>\1\0\1\venable\2\17smart_rename\fkeymaps\1\0\1\17smart_rename\bgrr\1\0\1\venable\2\28highlight_current_scope\1\0\1\venable\2\26highlight_definitions\1\0\0\1\0\2\25clear_on_cursor_move\2\venable\2\frainbow\1\0\2\18extended_mode\2\venable\2\14highlight\1\0\1\venable\2\21ensure_installed\1\0\0\1\f\0\0\tbash\ncmake\bcpp\bcss\15dockerfile\thtml\15javascript\tjson\nlatex\blua\nregex\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-ts-autotag
+time([[Config for nvim-ts-autotag]], true)
+try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
+time([[Config for nvim-ts-autotag]], false)
 if should_profile then save_profiles() end
 
 end)
