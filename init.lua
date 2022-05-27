@@ -1,16 +1,12 @@
 require("init")
 require("plugins")
 require("lsp-config")
-require('lualine').setup ({
-  options = {
-    theme = 'material'
-  }
-})
 require("keymap")
 
 do local O=vim.opt
 
 O.mouse = "a"
+O.title = true
 
 -- Search configuration
 O.hlsearch   = true
@@ -42,29 +38,21 @@ O.listchars:append{
 }
 
 O.modelineexpr   = true
-O.swapfile       = false
-O.backup         = false
+-- O.swapfile       = false
+-- O.backup         = false
 O.splitbelow     = true
 O.splitright     = true
 O.tabstop        = 4     -- columns used on tab (default=8)
 O.timeoutlen     = 3000
 O.wildmenu       = true
 O.wrap           = false
-O.clipboard      = "unnamed"
+-- O.clipboard      = "unnamed"
 O.termguicolors  = true
 
 O.background     = "dark"
 
 end
 
-vim.api.nvim_set_var("gruvbox_contrast_dark","hard") -- "medium", "soft"
-
--- Load colorscheme with fail safe ones
--- and tweak to beter user interface experience
--- require("colors").use("material","wal","dracula","gruvbox","desert")
-require('material').setup({
-  lualine_style = 'default' -- the default style
-})
 vim.cmd 'colorscheme material'
 vim.g.material_style = "deep ocean"
 

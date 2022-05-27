@@ -19,7 +19,7 @@ return require( "packer" ).startup( function( use )
       "p00f/nvim-ts-rainbow", -- Rainbow parentheses powered by tree-sitter
       "nvim-treesitter/nvim-treesitter-refactor", -- Highlight definitions, navigation and rename powered by nvim-treesitter.
       "nvim-treesitter/nvim-treesitter-textobjects", -- Textobjects defined by tree-sitter queries.
-
+      'JoosepAlviste/nvim-ts-context-commentstring',
     },
     config = function() require('nvim-treesitter.configs').setup({
       ensure_installed = {"bash", "cmake", "cpp", "css", "dockerfile", "html", "javascript", "json","latex", "lua", "regex"},
@@ -117,31 +117,45 @@ return require( "packer" ).startup( function( use )
           },
         },
       },
+
+      context_commentstring = {
+        enable = true,
+        enable_autocmd = false,
+      }
     }) end,
   }
 
-  --use "nvim-treesitter/playground" -- View treesitter information directly in Neovim.
   use {-- Always show current function context.
     "nvim-treesitter/nvim-treesitter-context",
+    requires = "nvim-treesitter/nvim-treesitter",
     config = function() require('treesitter-context').setup() end,
   }
-  --use "theHamsta/nvim-treesitter-pairs" -- Define your pairs for % with tree-sitter
-  --use "https://github.com/folke/twilight.nvim" -- dims inactive portions of the code you're editing.
+
   use {
     "https://github.com/windwp/nvim-ts-autotag", -- Auto-pair plugin
+    requires = "nvim-treesitter/nvim-treesitter",
     config = function() require('nvim-ts-autotag').setup() end,
   }
-  --use "https://github.com/milisims/tree-sitter-org" -- parser for orgmode format.
+
+  use {
+    "SmiteshP/nvim-gps",
+    requires = "nvim-treesitter/nvim-treesitter",
+    config = function() require("nvim-gps").setup() end,
+  }
 
   --use "theHamsta/nvim-dap-virtual-text" -- Displays values of variables at their definition as virtual text during debugging
-  --use "JoosepAlviste/nvim-ts-context-commentstring" -- Sets the commentstring based on tree-sitter queries
   --use "mfussenegger/nvim-ts-hint-textobject" -- Textobject selection hint powered by treesitter.
-  --use "SmiteshP/nvim-gps" -- Statusline component which shows context, using custom queries for each language
   --use "andymass/vim-matchup" -- Provides language-specific % style pair and tuple matching, highlighting, and text-objects.
-  --use "lewis6991/spellsitter.nvim" -- Built in spellchecker support.
 
   -- Utilities
   use 'ap/vim-css-color'
+  use {
+    'lewis6991/spellsitter.nvim',
+    requires = 'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require('spellsitter').setup()
+    end
+  }
 
   -- Autocompletion
   use "hrsh7th/cmp-nvim-lsp"          -- | LSP source for nvim-cmp
@@ -153,13 +167,30 @@ return require( "packer" ).startup( function( use )
   use "L3MON4D3/LuaSnip"              -- | Snippets plugin
   use "saadparwaiz1/cmp_luasnip"      -- | Snippets source for nvim-cmp
 
-  --use "arkt8/nim.vim"                   -- | Syntax highlight for Nim
-  --use "jakwings/vim-terra"            -- | Support for terralang
-
   -- Interface & Colorschemes ----------------------------------------
-  use "nvim-lualine/lualine.nvim"     -- | Status line
-  use 'marko-cerovac/material.nvim'
-  use 'ryanoasis/vim-devicons'
+  use {
+    "nvim-lualine/lualine.nvim",     -- | Status line
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = function()
+    local gps = require("nvim-gps")
+
+    require("lualine").setup({
+      options = {
+        theme = 'material',
+      },
+      sections = {
+          lualine_c = {
+            { gps.get_location, cond = gps.is_available },
+          },
+      },
+    })
+    end,
+  }
+
+  use {
+    'marko-cerovac/material.nvim',
+    config = function() require('material').setup() end,
+  }
 
   -- Tools -----------------------------------------------------------
   use {
@@ -167,5 +198,27 @@ return require( "packer" ).startup( function( use )
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use 'airblade/vim-gitgutter' -- Git
-  use 'preservim/nerdcommenter'
+  --use 'preservim/nerdcommenter'
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup({
+          pre_hook = function(ctx)
+          local U = require 'Comment.utils'
+
+          local location = nil
+          if ctx.ctype == U.ctype.block then
+            location = require('ts_context_commentstring.utils').get_cursor_location()
+          elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
+            location = require('ts_context_commentstring.utils').get_visual_start_location()
+          end
+
+          return require('ts_context_commentstring.internal').calculate_commentstring {
+            key = ctx.ctype == U.ctype.line and '__default' or '__multiline',
+            location = location,
+          }
+        end,
+        })
+    end
+}
 end )
