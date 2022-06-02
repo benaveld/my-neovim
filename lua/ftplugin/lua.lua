@@ -15,29 +15,16 @@ function ft.ftplugin()
   table.insert(runtime_path, "lua/?/init.lua")
   require("lsp-config").setup("sumneko_lua", {
     settings = {
-      rootPatterns = {".git/"},
       Lua = {
         runtime = {
-          version = 'Lua 5.4',
-          path = {
-            '?.lua',
-            '?/init.lua',
-            vim.fn.expand'~/.luarocks/share/lua/5.4/?.lua',
-            vim.fn.expand'~/.luarocks/share/lua/5.4/?/init.lua',
-            '/usr/share/5.4/?.lua',
-            '/usr/share/lua/5.4/?/init.lua'
-          }
+          version = 'LuaJIT',
         },
         diagnostics = {
             enable  = true,
             globals = {"vim"},
-            disable = {"lowercase-global"}
         },
         workspace = {
-          library = {
-            vim.fn.expand'~/.luarocks/share/lua/5.4',
-            '/usr/share/lua/5.4'
-          }
+          library = vim.api.nvim_get_runtime_file("", true),
         },
         telemetry = {
           enable = false

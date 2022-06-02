@@ -10,7 +10,37 @@ return require( "packer" ).startup( function( use )
   use "wbthomason/packer.nvim"        -- | Plugin Manager
 
   -- Language Tools --------------------------------------------------
-  use "neovim/nvim-lspconfig"         -- | Default config for NeoVim lsp
+  use {
+    "neovim/nvim-lspconfig",        -- | Default config for NeoVim lsp
+    -- config =function ()
+    --   require('lspconfig').sumneko_lua.setup({
+    --     runtime = {
+    --       -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+    --       version = 'LuaJIT',
+    --     },
+    --     diagnostics = {
+    --       -- Get the language server to recognize the `vim` global
+    --       globals = {'vim'},
+    --     },
+    --     workspace = {
+    --       -- Make the server aware of Neovim runtime files
+    --       library = vim.api.nvim_get_runtime_file("", true),
+    --     },
+    --     -- Do not send telemetry data containing a randomized but unique identifier
+    --     telemetry = {
+    --       enable = false,
+    --     },
+    --   })
+    --
+    --   require'lspconfig'.cmake.setup{}
+    --   require'lspconfig'.dockerls.setup{}
+    --   require'lspconfig'.eslint.setup{}
+    --   vim.cmd([[autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll]])
+    --
+    --   require'lspconfig'.tsserver.setup{}
+    --   require'lspconfig'.tailwindcss.setup{}
+    -- end,
+  }
 
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -20,9 +50,10 @@ return require( "packer" ).startup( function( use )
       "nvim-treesitter/nvim-treesitter-refactor", -- Highlight definitions, navigation and rename powered by nvim-treesitter.
       "nvim-treesitter/nvim-treesitter-textobjects", -- Textobjects defined by tree-sitter queries.
       'JoosepAlviste/nvim-ts-context-commentstring',
+      'andymass/vim-matchup',
     },
     config = function() require('nvim-treesitter.configs').setup({
-      ensure_installed = {"bash", "cmake", "cpp", "css", "dockerfile", "html", "javascript", "json","latex", "lua", "regex"},
+      ensure_installed = {"bash", "cmake", "cpp", "css", "dockerfile", "html", "javascript", "json","latex", "lua", "regex", "typescript","tsx"},
 
       highlight = {
         enable = true,
@@ -34,6 +65,10 @@ return require( "packer" ).startup( function( use )
         max_file_lines = nil, -- Do not enable for files with more than n lines, int
       },
 
+      matchup = {
+        enable = true,
+      },
+
       refactor = {
         highlight_definitions = {
           enable = true,
@@ -41,7 +76,7 @@ return require( "packer" ).startup( function( use )
           clear_on_cursor_move = true,
         },
         highlight_current_scope = { enable = true },
-        
+
         smart_rename = {
           enable = true,
           keymaps = {
@@ -158,6 +193,7 @@ return require( "packer" ).startup( function( use )
   }
 
   -- Autocompletion
+  use "nvim-lua/completion-nvim"
   use "hrsh7th/cmp-nvim-lsp"          -- | LSP source for nvim-cmp
   use "hrsh7th/cmp-buffer"            -- | In buffer completion
   use "hrsh7th/cmp-path"              -- | Path comp
@@ -175,9 +211,6 @@ return require( "packer" ).startup( function( use )
     local gps = require("nvim-gps")
 
     require("lualine").setup({
-      options = {
-        theme = 'material',
-      },
       sections = {
           lualine_c = {
             { gps.get_location, cond = gps.is_available },
@@ -191,6 +224,8 @@ return require( "packer" ).startup( function( use )
     'marko-cerovac/material.nvim',
     config = function() require('material').setup() end,
   }
+
+	use "EdenEast/nightfox.nvim"
 
   -- Tools -----------------------------------------------------------
   use {

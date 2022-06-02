@@ -140,6 +140,7 @@ cmp.setup({
       ['<Insert>']  = fn.complete,
       ['<S-Right>'] = fn.complete,
       ['<S-Tab>']   = fn.complete,
+      ['<C-Space>'] = fn.complete,
       -- Enter and Tab are problematic... horrible UX
       --['<CR>']      = fn.complete,
 
@@ -159,6 +160,7 @@ cmp.setup({
       ['<Left>']    = fn.closeAndThrough,
    }),
    sources = cmp.config.sources({
+      { name = 'spell' },
       { name = 'nvim_lsp' }, -- hrsh7th/cmp-nvim-lsp
       { name = 'luasnip' },  -- L3MON4D3/LuaSnip
       { name = 'path' },     -- hrsh7th/cmp-path
