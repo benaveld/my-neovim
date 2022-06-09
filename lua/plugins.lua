@@ -178,10 +178,6 @@ return require( "packer" ).startup( function( use )
     config = function() require("nvim-gps").setup() end,
   }
 
-  --use "theHamsta/nvim-dap-virtual-text" -- Displays values of variables at their definition as virtual text during debugging
-  --use "mfussenegger/nvim-ts-hint-textobject" -- Textobject selection hint powered by treesitter.
-  --use "andymass/vim-matchup" -- Provides language-specific % style pair and tuple matching, highlighting, and text-objects.
-
   -- Utilities
   use 'ap/vim-css-color'
   use {

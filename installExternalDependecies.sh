@@ -10,12 +10,14 @@ sudo pacman -Syu --needed \
   xclip
 echo "---- Pacman done --------------------------"
 
+echo "---- Paman install ------------------------"
 sudo pamac build \
+  ltex-ls-bin \
   nvim-packer-git
 echo "---- Paman done ---------------------------"
 
 echo "---- npm installing -----------------------"
-sudo npm i --location=global \
+sudo npm i -g \
   dockerfile-language-server-nodejs \
   bash-language-server \
   vscode-langservers-extracted \

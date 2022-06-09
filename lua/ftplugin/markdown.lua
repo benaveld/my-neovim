@@ -2,9 +2,10 @@ local ft = {}
 local colors = require "colors"
 
 function ft.ftplugin()
-   -- Wrap lines to act like a text processor
-   vim.o.wrap = 1
-   vim.o.linebreak = 1
+  -- Wrap lines to act like a text processor
+  vim.o.wrap = 1
+  vim.o.linebreak = 1
+  require("lsp-config").setup("ltex", {}) --o
 end
 
 
