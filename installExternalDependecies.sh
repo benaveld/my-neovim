@@ -1,19 +1,25 @@
 #!/bin/bash
 
 echo "---- Pacman install -----------------------"
-sudo pacman -Syu --needed \
-  ripgrep \
+sudo pacman -Syuq --noconfirm --needed \
   fd \
-  python-pynvim \
   lua-language-server \
+  neovim \
   npm \
+  python-pynvim \
+  ripgrep \
   xclip
 echo "---- Pacman done --------------------------"
 
 echo "---- Paman install ------------------------"
-sudo pamac build \
-  ltex-ls-bin \
+PACKAGES="\
+  ltex-ls-bin
   nvim-packer-git
+  "
+
+NOT_INSTALLED_PACKAGES=$(echo "$PACKAGES" | grep -v "$(pamac list -iq)")
+
+pamac build $NOT_INSTALLED_PACKAGES
 echo "---- Paman done ---------------------------"
 
 echo "---- npm installing -----------------------"
@@ -25,3 +31,5 @@ sudo npm i -g \
   typescript-language-server \
   @tailwindcss/language-server
 echo "---- npm done -----------------------------"
+
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
